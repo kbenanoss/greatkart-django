@@ -10,11 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 import os
 from pathlib import Path
 BASE_DIR_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -130,12 +129,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/';
-STATIC_ROOT = BASE_DIR /'static'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'greatkart/static',
 ]
 
 # media files configuration
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MESSAGE_TAGS = {
+    messages.INFO: 'success',
+    messages.ERROR: 'danger',
+}
+
+# SMTP configuration
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'e4c5c6617df7b4'
+EMAIL_HOST_PASSWORD = '81e8b7ac79aafc'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True
