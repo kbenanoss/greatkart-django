@@ -80,6 +80,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'greatkart.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
+AUTHENTICATION_BACKENDS = (
+    'accounts.backends', 'django.contrib.auth.backends.ModelBackend', )
 
 
 # Database
